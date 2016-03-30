@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Threading;
+
 
 namespace TryMeasStudioChart
 {
@@ -16,31 +16,33 @@ namespace TryMeasStudioChart
             get { return _chartData; }
             set { _chartData = value; }
         }
-
-        private readonly DispatcherTimer timer = new DispatcherTimer();
-        private readonly Random rand = new Random();
+        private Model _model;
 
         public MainWindowViewModel()
         {
+            _model = new Model(this);
             _chartData = new []
                 {
                     new ChartCollection<double>(100),
                     new ChartCollection<double>(100),
                 };
-            timer.Tick += OnTimerTick;
-            timer.Interval = TimeSpan.FromMilliseconds(100);
-            timer.Start();
         }
 
-        void OnTimerTick(object sender, EventArgs e)
+        public int FindChartIndex(int id)
         {
-            GenerateData();
+            if (id == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
         }
 
-        private void GenerateData()
+        public void AppendToChartData(int ix, double value)
         {
-            _chartData[0].Append(rand.NextDouble());
-            _chartData[1].Append(rand.NextDouble());
+            _chartData[ix].Append(value);
         }
     }
 }
