@@ -1,0 +1,22 @@
+﻿<Window x:Class="TryMeasStudioChart.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ni="http://schemas.ni.com/controls/2009/xaml/presentation"
+        Title="MainWindow" Height="480" Width="640" >
+    <Grid>
+        <ni:Graph
+            Name="mygraph"
+            RenderMode="Raster"
+            DataSource="{Binding ChartData}"
+            HorizontalAlignment="Left"
+            Height="200" Margin="181,114,0,0"
+            VerticalAlignment="Top"
+            Width="300">
+            <ni:Graph.Axes>
+                <ni:AxisDouble Adjuster="ContinuousChart"
+                               Orientation="Horizontal"
+                               Range="0,100"/>
+            </ni:Graph.Axes>
+        </ni:Graph>
+    </Grid>
+</Window>
