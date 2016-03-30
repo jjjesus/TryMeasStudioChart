@@ -10,8 +10,8 @@ namespace TryMeasStudioChart
 {
     public class MainWindowViewModel
     {
-        private ChartCollection<double> _chartData;
-        public ChartCollection<double> ChartData
+        private ChartCollection<double>[] _chartData;
+        public ChartCollection<double>[] ChartData
         {
             get { return _chartData; }
             set { _chartData = value; }
@@ -22,7 +22,11 @@ namespace TryMeasStudioChart
 
         public MainWindowViewModel()
         {
-            _chartData = new ChartCollection<double>(100);
+            _chartData = new []
+                {
+                    new ChartCollection<double>(100),
+                    new ChartCollection<double>(100),
+                };
             timer.Tick += OnTimerTick;
             timer.Interval = TimeSpan.FromMilliseconds(100);
             timer.Start();
@@ -35,7 +39,8 @@ namespace TryMeasStudioChart
 
         private void GenerateData()
         {
-            _chartData.Append(rand.NextDouble());
+            _chartData[0].Append(rand.NextDouble());
+            _chartData[1].Append(rand.NextDouble());
         }
     }
 }

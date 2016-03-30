@@ -17,6 +17,20 @@
                                Orientation="Horizontal"
                                Range="0,100"/>
             </ni:Graph.Axes>
+            <ni:Graph.Plots>
+                <ni:Plot
+                    Name="MyPlot1"
+                    Label="MyPlot1"
+                    >
+                    <ni:LinePlotRenderer Stroke="Blue"/>
+                </ni:Plot>
+                <ni:Plot
+                    Name="MyPlot2"
+                    Label="MyPlot2"
+                    >
+                    <ni:LinePlotRenderer Stroke="Purple"/>
+                </ni:Plot>
+            </ni:Graph.Plots>
         </ni:Graph>
     </Grid>
 </Window>
