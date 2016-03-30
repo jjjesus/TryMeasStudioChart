@@ -30,14 +30,8 @@ namespace TryMeasStudioChart
 
         private void GenerateData()
         {
-            double data0 = _rand.NextDouble();
-            double data1 = _rand.NextDouble();
-
-            int ix0 = _vm.FindChartIndex(0);
-            int ix1 = _vm.FindChartIndex(1);
-
-            _vm.AppendToChartData(ix0, data0);
-            _vm.AppendToChartData(ix1, data1);
+            _vm.AppendToChartData("tIn", _rand.NextDouble());
+            _vm.AppendToChartData("tOut", _rand.NextDouble());
         }
     }
 }

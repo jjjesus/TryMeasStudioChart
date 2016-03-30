@@ -28,21 +28,16 @@ namespace TryMeasStudioChart
                 };
         }
 
-        public int FindChartIndex(int id)
+        public void AppendToChartData(string id, double value)
         {
-            if (id == 0)
-            {
-                return 0;
-            }
-            else
-            {
-                return 1;
-            }
+            int ix = getChartIndex(id);
+            _chartData[ix].Append(value);
         }
 
-        public void AppendToChartData(int ix, double value)
+        private int getChartIndex(string id)
         {
-            _chartData[ix].Append(value);
+            if (id == "tIn") return 0;
+            else return 1;
         }
     }
 }
